@@ -48,5 +48,36 @@ public class MyHashMapTest {
 		
 		Assert.assertEquals(3, frequency);
 	}
+	
+	@Test
+	public void deleteTheWordsFromHashMapFunctionAndGetFrequency() {
+		
+		String sentence = "Paranoids are not paranoid because they are paranoid but because they keep putting themselves deliberately into paranoid avoidable situations";
+		
+		MyLinkedHashMap<String, Integer> myHashMap = new MyLinkedHashMap<>();
+		String words[] = sentence.toLowerCase().split(" ");
+		
+		for (String word: words) {
+			Integer value = myHashMap.get(word);
+			if(value == null)
+				value = 1;
+			else value++;
+			
+			myHashMap.add(word, value);
+		}
+		
+		
+		myHashMap.delete("avoidable");
+		int frequency = 0;
+
+		
+		if (myHashMap.get("avoidable") != null) {
+			frequency = myHashMap.get("avoidable");
+		}
+					
+		Assert.assertEquals(0, frequency);
+
+		
+	}
  	
 }
