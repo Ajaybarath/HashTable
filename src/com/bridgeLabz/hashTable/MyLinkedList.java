@@ -5,36 +5,6 @@ public class MyLinkedList<K extends Comparable <K>> {
 	INode<K> head;
 	INode<K> tail;
 
-//	public static void main(String args[]) {
-//
-//		MyLinkedList<Integer> addLinkedList = new MyLinkedList<>();
-//		MyLinkedList<Integer> appendLinkedList = new MyLinkedList<>();
-//		MyLinkedList<Integer> addInBetweenLinkedList = new MyLinkedList<>();
-//
-//		INode<Integer> node1 = new MyNode<>(56);
-//		INode<Integer> node2 = new MyNode<>(30);
-//		INode<Integer> node3 = new MyNode<>(70);
-//
-//		addLinkedList.add(node3);
-//		addLinkedList.add(node2);
-//		addLinkedList.add(node1);
-//
-//		appendLinkedList.append(node1);
-//		appendLinkedList.append(node2);
-//		appendLinkedList.append(node3);
-//
-//		addInBetweenLinkedList.add(node3);
-//		addInBetweenLinkedList.add(node1);
-//		addInBetweenLinkedList.addInBetween(node2, node3);
-//
-//		addLinkedList.printNode();
-//
-//		appendLinkedList.printNode();
-//
-//		addInBetweenLinkedList.printNode();
-//
-//	}
-
 	public void add(INode<K> newNode) {
 
 		if (head == null) {
@@ -125,14 +95,14 @@ public class MyLinkedList<K extends Comparable <K>> {
 
 	}
 
-	public void deleteNode(INode node) {
+	public void deleteNode(K key) {
 
-		if (tail.equals(node)) {
+		if (tail.getKey().equals(key)) {
 			popLast();
 		} else {
 			INode<K> tempNode = head;
 
-			while (tempNode.getNext() != node) {
+			while (tempNode.getNext().getKey() != key) {
 				tempNode = tempNode.getNext();
 			}
 
